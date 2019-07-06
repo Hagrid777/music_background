@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.17/Tone.js"></script>
+
+	<style type="text/css">
+		body {
+
+			margin: 0px !important;
+		}
+
+		.aa {
+			background-image: url(15-152561_full-hd-background-rain.jpg);
+			background-size: cover;
+			height: 100vh;
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<script src="jquery.ripples-min.js"></script>
+	<div class="aa" onclick="fun()"></div>
+
+
+	<script>
+		$(document).ready(function () {
+			$('.aa').ripples({
+
+				dropRadius: 20,
+				perturbance: 0.04,
+
+			});
+
+		});
+
+		function fun() {
+
+			let arr = [
+				new Tone.Synth().toMaster(),
+				new Tone.AMSynth().toMaster(),
+			];
+			let q = Math.floor(Math.random() * 2)
+			let a = Math.floor(Math.random() * 5 + 4);
+			function makeid(length) {
+				var result = '';
+				var characters = 'ABCDEFG';
+				var charactersLength = characters.length;
+				for (var i = 0; i < length; i++) {
+					result += characters.charAt(Math.floor(Math.random() * charactersLength));
+				}
+				return result;
+			}
+			let b = makeid(1);
+
+			let ar = b + a;
+			let c = Math.floor(Math.random() * 8 + 4);
+
+			arr[q].triggerAttackRelease(ar, c + 'n')
+			console.log(a)
+
+
+		}
+	</script>
+
+
+</body>
+
+</html>
